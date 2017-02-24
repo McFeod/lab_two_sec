@@ -9,7 +9,8 @@ bytes_to_numbers = partial(bytes_to_numbers, size=SYMBOL_SIZE)
 
 class RSAClient:
     def __init__(self):
-        self.public_key, self.__private_key = RSAKeygen().generate_key()
+        self.keygen = RSAKeygen()
+        self.public_key, self.__private_key = self.keygen.generate_key()
         self.recipient = None
 
     def handshake(self, other):
@@ -24,9 +25,10 @@ class RSAClient:
         Шифрование при помощи публичного ключа адресата.
         Полученные числа упаковываются в байты
         :param message: исходное сообщение
-        :return: зашифрованное сообщение
+        :return: зашифрованное сообщение в байтах, зашифрованное сообщение (числа)
         """
-        return numbers_to_bytes(apply_to_bytes(message, self.recipient.public_key))
+        numbers = apply_to_bytes(message, self.recipient.public_key)
+        return numbers_to_bytes(numbers), numbers
 
     def decrypt_message(self, message):
         """

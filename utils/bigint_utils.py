@@ -5,7 +5,7 @@ def numbers_to_bytes(numbers, size):
     :param size: максимальный размер числа в байтах
     :return: объект bytes
     """
-    return b"".join(x.to_bytes(size, 'little') for x in numbers)
+    return b"".join(x.to_bytes(size, 'big') for x in numbers)
 
 
 def bytes_to_numbers(message, size):
@@ -15,4 +15,4 @@ def bytes_to_numbers(message, size):
     :param size: размер одного числа в байтах
     :return: список целых чисел
     """
-    return [int.from_bytes(message[x: x + size], 'little') for x in range(0, len(message), size)]
+    return [int.from_bytes(message[x: x + size], 'big') for x in range(0, len(message), size)]

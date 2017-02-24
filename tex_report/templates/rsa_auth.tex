@@ -1,0 +1,51 @@
+\begin{enumerate}
+\item Боб выбирает сообщение "\VAR{func.str(rsa.auth.message, 'cp1251')}";
+
+\item Исходное сообщение в кодировке cp1251 представимо как набор байт: \\
+(
+%% for byte in rsa.auth.message
+    \VAR{"%x" % byte}
+    %% if not loop.last
+    ,
+    %% endif
+%% endfor
+);
+
+\item Боб шифрует сообщение открытым ключом Алисы, получая зашифрованное сообщение,
+применив к каждому байту функцию $c = m^e \ mod \ n$;
+
+\item Зашифрованное сообщение (
+%% for num in rsa.auth.encrypted_numbers
+    \VAR{'%x' % num}
+    %% if not loop.last
+    ,
+    %% endif
+%% endfor
+)\\
+в байтах: (
+%% for num in rsa.auth.encrypted_bytes
+    \VAR{'%x' % num}
+    %% if not loop.last
+    ,
+    %% endif
+%% endfor
+);
+\item Алиса расшифровывает $c$ закрытым ключом $\left\{d,n\right\}$, получая $\bar{m} = c^d \ mod \ n$;
+
+\item Расшифрованное сообщение: (
+%% for num in rsa.auth.decrypted_message
+    \VAR{'%x' % num}
+    %% if not loop.last
+    ,
+    %% endif
+%% endfor
+);
+
+\item
+%% if rsa.auth.passed
+    Аутентификация успешна.
+%% else
+    Значения не совпадают.
+%% endif
+
+\end{enumerate}
