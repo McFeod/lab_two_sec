@@ -1,0 +1,18 @@
+\begin{enumerate}
+
+\item Алиса выбирает сообщение "\VAR{schnorr.auth.k_char}" (число \VAR{"%x" % schnorr.auth.k});
+\item Алиса отправляет Бобу $m = \VAR{"%x" % schnorr.auth.message}$;
+\item Боб выбирает ответ "\VAR{schnorr.auth.answer_char}" (число \VAR{"%x" % schnorr.auth.first_answer}) и отправляет Алисе;
+\item Алиса, используя закрытый и открытый ключи, вычисляет $s = \VAR{"%x" % schnorr.auth.encrypted_message}$;
+\item Алиса посылает $s$ Бобу;
+\item Боб, используя открытый ключ Алисы, вычисляет $\bar{m} = \VAR{"%x" % schnorr.auth.decrypted_message}$;
+\item Боб сравнивает $m$ и $\bar{m}$.
+
+\item
+%% if schnorr.auth.passed
+    Аутентификация успешна.
+%% else
+    Значения не совпадают.
+%% endif
+
+\end{enumerate}

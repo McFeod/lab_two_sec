@@ -1,6 +1,7 @@
 import os
 
 from rsa.main import rsa_auth_demo
+from schnorr.main import schnorr_auth_demo
 from tex_report.jinja_settings import render_template
 
 
@@ -25,6 +26,7 @@ if __name__ == '__main__':
         'func': {
             'str': str
         },
-        'rsa': rsa_auth_demo()
+        'rsa': rsa_auth_demo(),
+        'schnorr': schnorr_auth_demo()
     }
     show_report('templates/main.tex', context)

@@ -1,8 +1,9 @@
 from functools import partial
 
 import math
+
+from sympy import gcdex
 from sympy.ntheory import randprime
-from gmpy import gcdext
 
 MIN_RANDOM = 0x10000000  # границы для p и q
 MAX_RANDOM = 0xffffffff
@@ -47,7 +48,7 @@ class RSAKeygen:
         phi = euler(p, q)           # функция Эйлера
         e = find_exponent(phi)      # открытая экспонента
         public_key = (e, n)         # открытый ключ
-        gcd, d, _ = gcdext(e, phi)  # уравнение Евклида
+        d, _, gcd = gcdex(e, phi)  # уравнение Евклида
         assert gcd == 1
         d = int((d + phi) % phi)    # секретная экспонента
         private_key = (d, n)        # закрытый ключ
