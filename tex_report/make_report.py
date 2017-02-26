@@ -1,5 +1,6 @@
 import os
 
+from ffsh.main import fiat_shamir_auth_demo
 from rsa.main import rsa_auth_demo
 from schnorr.main import schnorr_auth_demo
 from tex_report.jinja_settings import render_template
@@ -27,6 +28,7 @@ if __name__ == '__main__':
             'str': str
         },
         'rsa': rsa_auth_demo(),
-        'schnorr': schnorr_auth_demo()
+        'schnorr': schnorr_auth_demo(),
+        'ffsh': fiat_shamir_auth_demo()
     }
     show_report('templates/main.tex', context)

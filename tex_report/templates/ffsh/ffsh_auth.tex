@@ -1,0 +1,28 @@
+
+\begin{longtable}[H]{|p{0.3cm}|p{0.3cm}|p{2.8cm}|p{2.8cm}|p{0.3cm}|p{2.8cm}|p{3cm}|p{1.1cm}|}
+
+\hline
+\textbf{№} &
+\multicolumn{2}{|c|}{\textbf{символ $r$}} &
+\textbf{сообщение $m$}  &
+\textbf{$b$}  &
+\textbf{шифр $y$}  &
+\textbf{расшифровка $\bar{m}$}  &
+\textbf{успех} \\
+
+%% for row in ffsh.auth
+\hline
+\VAR{loop.index} &
+\VAR{row.init_value or '-'} &
+\VAR{"%x" % row.r} &
+\VAR{"%x" % row.message} &
+\VAR{row.bit} &
+\VAR{"%x" % row.encrypted_message} &
+\VAR{"%x" % row.decrypted_message} &
+\VAR{row.passed}  \\
+
+%% endfor
+\hline
+
+
+\end{longtable}
