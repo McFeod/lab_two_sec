@@ -4,15 +4,15 @@ from rsa.auth import RSAClient
 
 
 def rsa_auth_demo():
-    alice = RSAClient()
-    bob = RSAClient()
-    alice.handshake(bob)
-    context = {'gen': alice.keygen.steps}
+    peggy = RSAClient()
+    victor = RSAClient()
+    peggy.handshake(victor)
+    context = {'gen': peggy.keygen.steps}
 
     def auth():
         message = 'Фед'.encode('cp1251')
-        encrypted_bytes, encrypted_numbers = bob.encrypt_message(message)
-        decrypted_message = alice.decrypt_message(encrypted_bytes)
+        encrypted_bytes, encrypted_numbers = victor.encrypt_message(message)
+        decrypted_message = peggy.decrypt_message(encrypted_bytes)
         passed = (message == decrypted_message)
         return locals()
     context['auth'] = auth()

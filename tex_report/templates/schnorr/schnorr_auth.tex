@@ -1,12 +1,12 @@
 \begin{enumerate}
 
-\item Алиса выбирает сообщение "\VAR{schnorr.auth.k_char}" (число \VAR{"%x" % schnorr.auth.k});
-\item Алиса отправляет Бобу $m = \VAR{"%x" % schnorr.auth.message}$;
-\item Боб выбирает ответ "\VAR{schnorr.auth.answer_char}" (число \VAR{"%x" % schnorr.auth.first_answer}) и отправляет Алисе;
-\item Алиса, используя закрытый и открытый ключи, вычисляет $s = \VAR{"%x" % schnorr.auth.encrypted_message}$;
-\item Алиса посылает $s$ Бобу;
-\item Боб, используя открытый ключ Алисы, вычисляет $\bar{m} = \VAR{"%x" % schnorr.auth.decrypted_message}$;
-\item Боб сравнивает $m$ и $\bar{m}$.
+\item Пегги выбирает сообщение "\VAR{schnorr.auth.k_char}" (число \VAR{"%x" % schnorr.auth.k});
+\item Пегги отправляет Виктору $m = \VAR{"%x" % schnorr.auth.message}$;
+\item Виктор выбирает ответ "\VAR{schnorr.auth.answer_char}" (число \VAR{"%x" % schnorr.auth.first_answer}) и отправляет Пегги;
+\item Пегги, используя закрытый и открытый ключи, вычисляет $s = \VAR{"%x" % schnorr.auth.encrypted_message}$;
+\item Пегги посылает $s$ Виктору;
+\item Виктор, используя открытый ключ Пегги, вычисляет $\bar{m} = \VAR{"%x" % schnorr.auth.decrypted_message}$;
+\item Виктор сравнивает $m$ и $\bar{m}$.
 
 \item
 %% if schnorr.auth.passed

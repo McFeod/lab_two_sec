@@ -5,7 +5,7 @@ from schnorr.keygen import SchnorrKeygen
 MAX_ANSWER = 0xffffffff
 
 
-class SchnorrAuthServer:
+class SchnorrVerifier:
     """
     Поведение проводящего аутентификацию
     """
@@ -37,7 +37,7 @@ class SchnorrAuthServer:
         return decrypted, decrypted == self.recipient_message
 
 
-class SchnorrAuthClient:
+class SchnorrProver:
     """
     Поведение подтверждающего свою личность
     """
